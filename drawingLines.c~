@@ -20,13 +20,34 @@ int main(void) {
 // given a starting pixel (row, col), a length, 
 // draw a horizontal "line" across from left to right in the 2D array
 // all pixels can be assumed has been initialised with 0s
+// Extra: Vertical line? Diagonal Line?
 void drawLine(int arr[ROWS][COLS], int startRow, int startCol, int length) {
-
-
+    // startRow will also be our end row
+    int endRow = startRow;
+    // ending column = startCol + length - 1
+    int endCol = startCol + length - 1;
+    
+    int counter = startCol;
+    while (counter <= endCol) {
+        arr[startRow][counter] = 1;
+        counter++;
+    }
 }
+
 
 // revise how to go through a given array and print out elements
 void printArray(int arr[ROWS][COLS]) {
+    int rowCounter = 0;
+    while (rowCounter < ROWS) {
+        int colCounter = 0;
+        while (colCounter < COLS) {
+            printf("%d", arr[rowCounter][colCounter]); 
+        
+            colCounter++;
+        }
+        printf("\n");
+        rowCounter++;
+    }
     
 }
 
